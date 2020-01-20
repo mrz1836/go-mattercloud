@@ -1,11 +1,11 @@
 # go-mattercloud
 **go-mattercloud** is the unofficial golang implementation for the [MatterCloud API](https://developers.mattercloud.net/)
 
-[![Go](https://img.shields.io/github/go-mod/go-version/mrz1836/go-mattercloud?v=3)](https://golang.org/)
-[![Build Status](https://travis-ci.com/mrz1836/go-mattercloud.svg?branch=master&v=3)](https://travis-ci.com/mrz1836/go-mattercloud)
-[![Report](https://goreportcard.com/badge/github.com/mrz1836/go-mattercloud?style=flat&v=3)](https://goreportcard.com/report/github.com/mrz1836/go-mattercloud)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dde6d46426bd4c12be65916da8cf04d2)](https://www.codacy.com/app/mrz1818/go-mattercloud?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mrz1836/go-mattercloud&amp;utm_campaign=Badge_Grade)
-[![Release](https://img.shields.io/github/release-pre/mrz1836/go-mattercloud.svg?style=flat&v=3)](https://github.com/mrz1836/go-mattercloud/releases)
+[![Go](https://img.shields.io/github/go-mod/go-version/mrz1836/go-mattercloud?v=1)](https://golang.org/)
+[![Build Status](https://travis-ci.com/mrz1836/go-mattercloud.svg?branch=master&v=1)](https://travis-ci.com/mrz1836/go-mattercloud)
+[![Report](https://goreportcard.com/badge/github.com/mrz1836/go-mattercloud?style=flat&v=1)](https://goreportcard.com/report/github.com/mrz1836/go-mattercloud)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa788246bab1499a823b41182abc46cb)](https://www.codacy.com/app/mrz1818/go-mattercloud?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mrz1836/go-mattercloud&amp;utm_campaign=Badge_Grade)
+[![Release](https://img.shields.io/github/release-pre/mrz1836/go-mattercloud.svg?style=flat&v=1)](https://github.com/mrz1836/go-mattercloud/releases)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat)](https://github.com/RichardLitt/standard-readme)
 [![GoDoc](https://godoc.org/github.com/mrz1836/go-mattercloud?status.svg&style=flat)](https://godoc.org/github.com/mrz1836/go-mattercloud)
 
@@ -114,4 +114,4 @@ Looking for a Javascript version? Check out the [MatterCloud JS SDK](https://git
 
 ## License
 
-![License](https://img.shields.io/github/license/mrz1836/go-mattercloud.svg?style=flat&v=1)
+![License](https://img.shields.io/github/license/mrz1836/go-mattercloud.svg?style=flat&v=2)
