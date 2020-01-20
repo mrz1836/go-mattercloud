@@ -1,11 +1,11 @@
 # go-mattercloud
 **go-mattercloud** is the unofficial golang implementation for the [MatterCloud API](https://developers.mattercloud.net/)
 
-[![Go](https://img.shields.io/github/go-mod/go-version/mrz1836/go-mattercloud)](https://golang.org/)
-[![Build Status](https://travis-ci.com/mrz1836/go-mattercloud.svg?branch=master&v=1)](https://travis-ci.com/mrz1836/go-mattercloud)
-[![Report](https://goreportcard.com/badge/github.com/mrz1836/go-mattercloud?style=flat&v=1)](https://goreportcard.com/report/github.com/mrz1836/go-mattercloud)
+[![Go](https://img.shields.io/github/go-mod/go-version/mrz1836/go-mattercloud?v=3)](https://golang.org/)
+[![Build Status](https://travis-ci.com/mrz1836/go-mattercloud.svg?branch=master&v=3)](https://travis-ci.com/mrz1836/go-mattercloud)
+[![Report](https://goreportcard.com/badge/github.com/mrz1836/go-mattercloud?style=flat&v=3)](https://goreportcard.com/report/github.com/mrz1836/go-mattercloud)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/dde6d46426bd4c12be65916da8cf04d2)](https://www.codacy.com/app/mrz1818/go-mattercloud?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mrz1836/go-mattercloud&amp;utm_campaign=Badge_Grade)
-[![Release](https://img.shields.io/github/release-pre/mrz1836/go-mattercloud.svg?style=flat&v=2)](https://github.com/mrz1836/go-mattercloud/releases)
+[![Release](https://img.shields.io/github/release-pre/mrz1836/go-mattercloud.svg?style=flat&v=3)](https://github.com/mrz1836/go-mattercloud/releases)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat)](https://github.com/RichardLitt/standard-readme)
 [![GoDoc](https://godoc.org/github.com/mrz1836/go-mattercloud?status.svg&style=flat)](https://godoc.org/github.com/mrz1836/go-mattercloud)
 
@@ -37,8 +37,9 @@ You can also view the [MatterCloud API](https://developers.mattercloud.net/) doc
 - Customize the network per request (`main`, `test` or `stn`)
 - Using [heimdall http client](https://github.com/gojek/heimdall) with exponential backoff & more
 - Current (V3) coverage for the [MatterCloud API](https://developers.mattercloud.net/) API
+    - [x] Authentication
     - [x] Address
-    - [ ] Transaction
+    - [x] Transaction
 
 ## Examples & Tests
 All unit tests and [examples](mattercloud_test.go) run via [Travis CI](https://travis-ci.org/mrz1836/go-mattercloud) and uses [Go version 1.13.x](https://golang.org/doc/go1.13). View the [deployment configuration file](.travis.yml).

@@ -91,7 +91,7 @@ type Transaction struct {
 	Vout          []VoutType `json:"vout"`
 }
 
-// VinObject is the vin data
+// VinType is the vin data
 type VinType struct {
 	Address       string        `json:"address"`
 	AddressAddr   string        `json:"addr"`
@@ -104,7 +104,7 @@ type VinType struct {
 	Vout          int           `json:"vout"`
 }
 
-// VoutObject is the vout data
+// VoutType is the vout data
 type VoutType struct {
 	N             int              `json:"n"`
 	ScriptPubKey  ScriptPubKeyType `json:"scriptPubKey"`

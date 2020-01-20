@@ -93,4 +93,3 @@ func (c *Client) Request(endpoint string, method string, payload []byte) (respon
 	response = string(body)
 	return
 }
-
