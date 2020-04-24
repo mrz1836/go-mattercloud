@@ -11,6 +11,12 @@ var (
 	testAPIKey = os.Getenv("MATTER_CLOUD_API_KEY")
 )
 
+func init() {
+	if len(testAPIKey) == 0 {
+		testAPIKey = "dummy-api-key"
+	}
+}
+
 // TestNewClient test new client
 func TestNewClient(t *testing.T) {
 	// Not testing against API
