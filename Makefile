@@ -23,8 +23,5 @@ clean: ## Remove previous builds and any test cache data
 	@go clean -cache -testcache -i -r
 	@if [ -d $(DISTRIBUTIONS_DIR) ]; then rm -r $(DISTRIBUTIONS_DIR); fi
 
-lint: ## Run the Go lint application
-	@golint
-
 release:: ## Runs common.release then runs godocs
 	@$(MAKE) godocs
