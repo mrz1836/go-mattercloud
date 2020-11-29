@@ -6,6 +6,8 @@
 [![Report](https://goreportcard.com/badge/github.com/mrz1836/go-mattercloud?style=flat&v=1)](https://goreportcard.com/report/github.com/mrz1836/go-mattercloud)
 [![Release](https://img.shields.io/github/release-pre/mrz1836/go-mattercloud.svg?style=flat&v=1)](https://github.com/mrz1836/go-mattercloud/releases)
 [![GoDoc](https://godoc.org/github.com/mrz1836/go-mattercloud?status.svg&style=flat)](https://pkg.go.dev/github.com/mrz1836/go-mattercloud)
+[![Sponsor](https://img.shields.io/badge/sponsor-MrZ-181717.svg?logo=github&style=flat&v=4)](https://github.com/sponsors/mrz1836)
+[![Donate](https://img.shields.io/badge/donate-bitcoin-ff9900.svg?logo=bitcoin&style=flat)](https://mrz1818.com/?tab=tips&af=go-mattercloud)      
 
 ## Table of Contents
 - [Installation](#installation)
@@ -143,12 +145,13 @@ func main() {
 | [MrZ](https://github.com/mrz1836) |
 
 ## Contributing
+View the [contributing guidelines](CONTRIBUTING.md) and please follow the [code of conduct](CODE_OF_CONDUCT.md).
 
-View the [contributing guidelines](CONTRIBUTING.md) and follow the [code of conduct](CODE_OF_CONDUCT.md).
-
-Support the development of this project 🙏
-
-[![Donate](https://img.shields.io/badge/donate-bitcoin-brightgreen.svg)](https://mrz1818.com/?tab=tips&af=go-mattercloud)
+### How can I help?
+All kinds of contributions are welcome :raised_hands:!
+The most basic way to show your support is to star :star2: the project, or to raise issues :speech_balloon:.
+You can also support this project by [becoming a sponsor on GitHub](https://github.com/sponsors/mrz1836) :clap:
+or by making a [**bitcoin donation**](https://mrz1818.com/?tab=tips&af=go-mattercloud) to ensure this journey continues indefinitely! :rocket:
 
 #### Credits
 
