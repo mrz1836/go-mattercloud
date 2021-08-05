@@ -5,6 +5,7 @@ package mattercloud
 
 import (
 	"bytes"
+	"context"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -56,7 +57,9 @@ func (c *Client) Request(endpoint string, method string, payload []byte) (respon
 
 	// Start the request
 	var request *http.Request
-	if request, err = http.NewRequest(method, endpoint, bodyReader); err != nil {
+	if request, err = http.NewRequestWithContext(
+		context.Background(), method, endpoint, bodyReader,
+	); err != nil {
 		return
 	}
 

@@ -2,6 +2,10 @@ package mattercloud
 
 import "testing"
 
+const (
+	testAddress = `12XXBHkRNrBEb7GCvAP4G8oUs5SoDREkVX`
+)
+
 // TestClient_AddressBalance tests the AddressBalance()
 func TestClient_AddressBalance(t *testing.T) {
 
@@ -17,17 +21,16 @@ func TestClient_AddressBalance(t *testing.T) {
 	}
 
 	var resp *Balance
-	address := "12XXBHkRNrBEb7GCvAP4G8oUs5SoDREkVX"
-	resp, err = client.AddressBalance(address)
+	resp, err = client.AddressBalance(testAddress)
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
 
-	if resp.Address != address {
-		t.Fatal("failed to get the address", address, resp.Address)
+	if resp.Address != testAddress {
+		t.Fatal("failed to get the address", testAddress, resp.Address)
 	}
 
-	// Cant test for confirmed or unconfirmed, might change!
+	// Can't test for confirmed or unconfirmed, might change!
 }
 
 // TestClient_AddressBalanceBatch tests the AddressBalanceBatch()
@@ -45,7 +48,7 @@ func TestClient_AddressBalanceBatch(t *testing.T) {
 	}
 
 	var resp []*Balance
-	resp, err = client.AddressBalanceBatch([]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", "12XXBHkRNrBEb7GCvAP4G8oUs5SoDREkVX"})
+	resp, err = client.AddressBalanceBatch([]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", testAddress})
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
@@ -56,7 +59,7 @@ func TestClient_AddressBalanceBatch(t *testing.T) {
 		t.Fatal("should be two results")
 	}
 
-	// Cant test for confirmed or unconfirmed, might change!
+	// Can't test for confirmed or unconfirmed, might change!
 }
 
 // TestClient_AddressUtxos tests the AddressUtxos()
@@ -74,8 +77,7 @@ func TestClient_AddressUtxos(t *testing.T) {
 	}
 
 	var resp []*UnspentTransaction
-	address := "12XXBHkRNrBEb7GCvAP4G8oUs5SoDREkVX"
-	resp, err = client.AddressUtxos(address)
+	resp, err = client.AddressUtxos(testAddress)
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
@@ -84,7 +86,7 @@ func TestClient_AddressUtxos(t *testing.T) {
 		t.Fatal("there are no utxos")
 	}
 
-	// Cant test for the UTXOs as they might change
+	// Can't test for the UTXOs as they might change
 }
 
 // TestClient_AddressUtxosBatch tests the AddressUtxosBatch()
@@ -102,7 +104,7 @@ func TestClient_AddressUtxosBatch(t *testing.T) {
 	}
 
 	var resp []*UnspentTransaction
-	resp, err = client.AddressUtxosBatch([]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", "12XXBHkRNrBEb7GCvAP4G8oUs5SoDREkVX"})
+	resp, err = client.AddressUtxosBatch([]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", testAddress})
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
@@ -111,7 +113,7 @@ func TestClient_AddressUtxosBatch(t *testing.T) {
 		t.Fatal("no utxos found")
 	}
 
-	// Cant test for UTXOs since they may change
+	// Can't test for UTXOs since they may change
 }
 
 // TestClient_AddressHistory tests the AddressHistory()
@@ -129,8 +131,7 @@ func TestClient_AddressHistory(t *testing.T) {
 	}
 
 	var resp *History
-	address := "12XXBHkRNrBEb7GCvAP4G8oUs5SoDREkVX"
-	resp, err = client.AddressHistory(address)
+	resp, err = client.AddressHistory(testAddress)
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
@@ -147,7 +148,7 @@ func TestClient_AddressHistory(t *testing.T) {
 		t.Fatal("this address has history but its missing", resp.Results)
 	}
 
-	// Cant test History as that may change or grow
+	// Can't test History as that may change or grow
 }
 
 // TestClient_AddressHistoryBatch tests the AddressHistoryBatch()
@@ -165,7 +166,7 @@ func TestClient_AddressHistoryBatch(t *testing.T) {
 	}
 
 	var resp *History
-	resp, err = client.AddressHistoryBatch([]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", "12XXBHkRNrBEb7GCvAP4G8oUs5SoDREkVX"})
+	resp, err = client.AddressHistoryBatch([]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", testAddress})
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
@@ -182,5 +183,5 @@ func TestClient_AddressHistoryBatch(t *testing.T) {
 		t.Fatal("this address has history but its missing", resp.Results)
 	}
 
-	// Cant test History as that may change or grow
+	// Can't test History as that may change or grow
 }
