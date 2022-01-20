@@ -14,7 +14,7 @@ const (
 	// NetworkTest is for test-net
 	NetworkTest NetworkType = "test"
 
-	//NetworkStn is for the stn-net
+	// NetworkStn is for the stn-net
 	NetworkStn NetworkType = "stn"
 )
 
@@ -70,7 +70,7 @@ type HistoryItem struct {
 	Height int64  `json:"height"`
 }
 
-// Transaction is returned in the GetTransactionsResponse
+// Transaction is returned to the GetTransactionsResponse
 type Transaction struct {
 	APIInternalError
 	BlockHash     string     `json:"blockhash"`
