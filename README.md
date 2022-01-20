@@ -91,7 +91,7 @@ vet                  Run the Go vet application
 
 ## Examples & Tests
 All unit tests and [examples](mattercloud_test.go) run via [Github Actions](https://github.com/mrz1836/go-mattercloud/actions) and
-uses [Go version 1.15.x](https://golang.org/doc/go1.15). View the [configuration file](.github/workflows/run-tests.yml).
+uses [Go version 1.16.x](https://golang.org/doc/go1.16). View the [configuration file](.github/workflows/run-tests.yml).
 
 Run all tests (including integration tests)
 ```shell script
@@ -110,7 +110,7 @@ make bench
 ```
 
 ## Code Standards
-Read more about this Go project's [code standards](CODE_STANDARDS.md).
+Read more about this Go project's [code standards](.github/CODE_STANDARDS.md).
 
 ## Usage
 - View the [mattercloud examples](#examples--tests) above
@@ -145,7 +145,7 @@ func main() {
 | [MrZ](https://github.com/mrz1836) |
 
 ## Contributing
-View the [contributing guidelines](CONTRIBUTING.md) and please follow the [code of conduct](CODE_OF_CONDUCT.md).
+View the [contributing guidelines](.github/CONTRIBUTING.md) and please follow the [code of conduct](.github/CODE_OF_CONDUCT.md).
 
 ### How can I help?
 All kinds of contributions are welcome :raised_hands:!
