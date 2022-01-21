@@ -23,7 +23,7 @@ func TestNewClient(t *testing.T) {
 	if testing.Short() && len(testAPIKey) == 0 {
 		testAPIKey = "dummy-key-not-testing"
 	}
-	client, err := NewClient(testAPIKey, NetworkMain, nil)
+	client, err := NewClient(testAPIKey, NetworkMain, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -35,7 +35,7 @@ func TestNewClient(t *testing.T) {
 
 // ExampleNewClient example using NewClient()
 func ExampleNewClient() {
-	client, _ := NewClient(testAPIKey, NetworkMain, nil)
+	client, _ := NewClient(testAPIKey, NetworkMain, nil, nil)
 	fmt.Println(client.Parameters.Network)
 	// Output:main
 }
@@ -43,7 +43,7 @@ func ExampleNewClient() {
 // BenchmarkNewClient benchmarks the NewClient method
 func BenchmarkNewClient(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = NewClient(testAPIKey, NetworkMain, nil)
+		_, _ = NewClient(testAPIKey, NetworkMain, nil, nil)
 	}
 }
 

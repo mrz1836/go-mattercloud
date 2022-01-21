@@ -14,7 +14,7 @@ func TestClient_Transaction(t *testing.T) {
 	}
 
 	// Create a new client object to handle your queries (supply an API Key)
-	client, err := NewClient(testAPIKey, NetworkMain, nil)
+	client, err := NewClient(testAPIKey, NetworkMain, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -58,7 +58,7 @@ func TestClient_TransactionBatch(t *testing.T) {
 	}
 
 	// Create a new client object to handle your queries (supply an API Key)
-	client, err := NewClient(testAPIKey, NetworkMain, nil)
+	client, err := NewClient(testAPIKey, NetworkMain, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -93,7 +93,7 @@ func TestClient_Broadcast(t *testing.T) {
 	}
 
 	// Create a new client object to handle your queries (supply an API Key)
-	client, err := NewClient(testAPIKey, NetworkMain, nil)
+	client, err := NewClient(testAPIKey, NetworkMain, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}

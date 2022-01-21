@@ -22,11 +22,16 @@ const (
 	// apiEndpoint string = "https://api.mattercloud.io/api/" + version + "/"
 )
 
+// httpInterface is used for the http client (mocking heimdall)
+type httpInterface interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+
 // Client is the parent struct that wraps the heimdall client
 type Client struct {
-	httpClient  heimdall.Client // carries out the http operations
-	LastRequest *LastRequest    // is the raw information from the last request
-	Parameters  *Parameters     // contains application specific values
+	httpClient  httpInterface // carries out the http operations (heimdall client)
+	LastRequest *LastRequest  // is the raw information from the last request
+	Parameters  *Parameters   // contains application specific values
 }
 
 // Options holds all the configuration for connection, dialer and transport
@@ -82,14 +87,26 @@ func ClientDefaultOptions() (clientOptions *Options) {
 }
 
 // createClient will make a new http client based on the options provided
-func createClient(options *Options) (c *Client) {
+func createClient(options *Options, customHTTPClient *http.Client) (c *Client) {
 
 	// Create a client
 	c = new(Client)
+	c.LastRequest = new(LastRequest)
+
+	// Is there a custom HTTP client to use?
+	if customHTTPClient != nil {
+		c.httpClient = customHTTPClient
+		return
+	}
 
 	// Set options (either default or user modified)
 	if options == nil {
 		options = ClientDefaultOptions()
+	}
+
+	// Create a last request and parameters struct
+	c.Parameters = &Parameters{
+		UserAgent: options.UserAgent,
 	}
 
 	// dial is the net dialer for clientDefaultTransport
@@ -134,10 +151,5 @@ func createClient(options *Options) (c *Client) {
 		)
 	}
 
-	// Create a last request and parameters struct
-	c.LastRequest = new(LastRequest)
-	c.Parameters = &Parameters{
-		UserAgent: options.UserAgent,
-	}
 	return
 }

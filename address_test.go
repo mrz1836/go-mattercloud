@@ -18,7 +18,7 @@ func TestClient_AddressBalance(t *testing.T) {
 	}
 
 	// Create a new client object to handle your queries (supply an API Key)
-	client, err := NewClient(testAPIKey, NetworkMain, nil)
+	client, err := NewClient(testAPIKey, NetworkMain, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -45,7 +45,7 @@ func TestClient_AddressBalanceBatch(t *testing.T) {
 	}
 
 	// Create a new client object to handle your queries (supply an API Key)
-	client, err := NewClient(testAPIKey, NetworkMain, nil)
+	client, err := NewClient(testAPIKey, NetworkMain, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -77,7 +77,7 @@ func TestClient_AddressUtxos(t *testing.T) {
 	}
 
 	// Create a new client object to handle your queries (supply an API Key)
-	client, err := NewClient(testAPIKey, NetworkMain, nil)
+	client, err := NewClient(testAPIKey, NetworkMain, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -104,7 +104,7 @@ func TestClient_AddressUtxosBatch(t *testing.T) {
 	}
 
 	// Create a new client object to handle your queries (supply an API Key)
-	client, err := NewClient(testAPIKey, NetworkMain, nil)
+	client, err := NewClient(testAPIKey, NetworkMain, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -134,7 +134,7 @@ func TestClient_AddressHistory(t *testing.T) {
 	}
 
 	// Create a new client object to handle your queries (supply an API Key)
-	client, err := NewClient(testAPIKey, NetworkMain, nil)
+	client, err := NewClient(testAPIKey, NetworkMain, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -169,7 +169,7 @@ func TestClient_AddressHistoryBatch(t *testing.T) {
 	}
 
 	// Create a new client object to handle your queries (supply an API Key)
-	client, err := NewClient(testAPIKey, NetworkMain, nil)
+	client, err := NewClient(testAPIKey, NetworkMain, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}

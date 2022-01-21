@@ -129,7 +129,7 @@ import (
 func main() {
 
 	// Create a new client
-	client, _ := mattercloud.NewClient("your-secret-api-key", mattercloud.NetworkMain, nil)
+	client, _ := mattercloud.NewClient("your-secret-api-key", mattercloud.NetworkMain, nil, nil)
 
 	// Get balance for an address
 	balance, _ := client.AddressBalance(context.Background(),"16ZqP5Tb22KJuvSAbjNkoiZs13mmRmexZA")

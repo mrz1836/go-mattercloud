@@ -17,7 +17,8 @@ import (
 // Parameters values are set to the defaults defined by the API documentation.
 //
 // For more information: https://developers.mattercloud.io/
-func NewClient(apiKey string, network NetworkType, clientOptions *Options) (c *Client, err error) {
+func NewClient(apiKey string, network NetworkType, clientOptions *Options,
+	customHTTPClient *http.Client) (c *Client, err error) {
 
 	// Make sure we have an API key
 	if len(apiKey) == 0 {
@@ -25,7 +26,7 @@ func NewClient(apiKey string, network NetworkType, clientOptions *Options) (c *C
 	}
 
 	// Create a client using the given options
-	c = createClient(clientOptions)
+	c = createClient(clientOptions, customHTTPClient)
 
 	// Set the key and network
 	c.Parameters.apiKey = apiKey
@@ -35,7 +36,8 @@ func NewClient(apiKey string, network NetworkType, clientOptions *Options) (c *C
 }
 
 // Request is a generic request wrapper that can be used without constraints
-func (c *Client) Request(ctx context.Context, endpoint, method string, payload []byte) (response string, err error) {
+func (c *Client) Request(ctx context.Context, endpoint, method string,
+	payload []byte) (response string, err error) {
 
 	// Set reader
 	var bodyReader io.Reader
