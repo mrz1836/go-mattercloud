@@ -92,6 +92,7 @@ func createClient(options *Options, customHTTPClient *http.Client) (c *Client) {
 	// Create a client
 	c = new(Client)
 	c.LastRequest = new(LastRequest)
+	c.Parameters = new(Parameters)
 
 	// Is there a custom HTTP client to use?
 	if customHTTPClient != nil {
@@ -105,9 +106,7 @@ func createClient(options *Options, customHTTPClient *http.Client) (c *Client) {
 	}
 
 	// Create a last request and parameters struct
-	c.Parameters = &Parameters{
-		UserAgent: options.UserAgent,
-	}
+	c.Parameters.UserAgent = options.UserAgent
 
 	// dial is the net dialer for clientDefaultTransport
 	dial := &net.Dialer{KeepAlive: options.DialerKeepAlive, Timeout: options.DialerTimeout}
