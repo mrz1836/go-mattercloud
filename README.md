@@ -1,5 +1,5 @@
 # go-mattercloud
-> The unofficial Go implementation for the [MatterCloud API](https://developers.mattercloud.net/)
+> The unofficial Go implementation for the [MatterCloud API](https://developers.mattercloud.io/)
 
 [![Go](https://img.shields.io/github/go-mod/go-version/mrz1836/go-mattercloud?v=1)](https://golang.org/)
 [![Build Status](https://img.shields.io/github/workflow/status/mrz1836/go-mattercloud/run-go-tests?logo=github&v=3)](https://github.com/mrz1836/go-mattercloud/actions)
@@ -30,13 +30,13 @@ go get -u github.com/mrz1836/go-mattercloud
 ## Documentation
 You can view the generated [documentation here](https://pkg.go.dev/github.com/mrz1836/go-mattercloud).
 
-You can also view the [MatterCloud API](https://developers.mattercloud.net/) documentation.
+You can also view the [MatterCloud API](https://developers.mattercloud.io/) documentation.
 
 ### Features
 - [Client](client.go) is completely configurable
 - Customize the network per request (`main`, `test` or `stn`)
 - Using [heimdall http client](https://github.com/gojek/heimdall) with exponential backoff & more
-- Current (V3) coverage for the [MatterCloud API](https://developers.mattercloud.net/) API
+- Current (V3) coverage for the [MatterCloud API](https://developers.mattercloud.io/)
     - [x] Authentication
     - [x] Address
     - [x] Transaction
@@ -120,6 +120,7 @@ Basic implementation:
 package main
 
 import (
+	"context"
 	"log"
 
 	"github.com/mrz1836/go-mattercloud"
@@ -131,7 +132,7 @@ func main() {
 	client, _ := mattercloud.NewClient("your-secret-api-key", mattercloud.NetworkMain, nil)
 
 	// Get balance for an address
-	balance, _ := client.AddressBalance("16ZqP5Tb22KJuvSAbjNkoiZs13mmRmexZA")
+	balance, _ := client.AddressBalance(context.Background(),"16ZqP5Tb22KJuvSAbjNkoiZs13mmRmexZA")
 
 	// What's the confirmed balance?
 	log.Println("confirmed balance:", balance.Confirmed)
@@ -141,8 +142,8 @@ func main() {
 ## Maintainers
 
 | [<img src="https://github.com/mrz1836.png" height="50" alt="MrZ" />](https://github.com/mrz1836) |
-|:---:|
-| [MrZ](https://github.com/mrz1836) |
+|:------------------------------------------------------------------------------------------------:|
+|                                [MrZ](https://github.com/mrz1836)                                 |
 
 ## Contributing
 View the [contributing guidelines](.github/CONTRIBUTING.md) and please follow the [code of conduct](.github/CODE_OF_CONDUCT.md).
@@ -155,10 +156,10 @@ or by making a [**bitcoin donation**](https://mrz1818.com/?tab=tips&af=go-matter
 
 #### Credits
 
-[@Attila](https://github.com/attilaaf) & [MatterCloud](https://mattercloud.net/) for their hard work on the [MatterCloud API](https://developers.mattercloud.net/)
+[@Attila](https://github.com/attilaaf) & [MatterCloud](https://developers.mattercloud.io/) for their hard work on the [MatterCloud API](https://developers.mattercloud.io/)
 
 Looking for a Javascript version? Check out the [MatterCloud JS SDK](https://github.com/MatterCloud/mattercloudjs)
 
 ## License
 
-![License](https://img.shields.io/github/license/mrz1836/go-mattercloud.svg?style=flat&v=2)
+[![License](https://img.shields.io/github/license/mrz1836/go-mattercloud.svg?style=flat&v=2)](LICENSE)
