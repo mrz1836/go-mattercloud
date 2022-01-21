@@ -1,6 +1,9 @@
 package mattercloud
 
-import "testing"
+import (
+	"context"
+	"testing"
+)
 
 const (
 	testAddress = `12XXBHkRNrBEb7GCvAP4G8oUs5SoDREkVX`
@@ -21,7 +24,7 @@ func TestClient_AddressBalance(t *testing.T) {
 	}
 
 	var resp *Balance
-	resp, err = client.AddressBalance(testAddress)
+	resp, err = client.AddressBalance(context.Background(), testAddress)
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
@@ -48,7 +51,10 @@ func TestClient_AddressBalanceBatch(t *testing.T) {
 	}
 
 	var resp []*Balance
-	resp, err = client.AddressBalanceBatch([]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", testAddress})
+	resp, err = client.AddressBalanceBatch(
+		context.Background(),
+		[]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", testAddress},
+	)
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
@@ -77,7 +83,7 @@ func TestClient_AddressUtxos(t *testing.T) {
 	}
 
 	var resp []*UnspentTransaction
-	resp, err = client.AddressUtxos(testAddress)
+	resp, err = client.AddressUtxos(context.Background(), testAddress)
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
@@ -104,7 +110,10 @@ func TestClient_AddressUtxosBatch(t *testing.T) {
 	}
 
 	var resp []*UnspentTransaction
-	resp, err = client.AddressUtxosBatch([]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", testAddress})
+	resp, err = client.AddressUtxosBatch(
+		context.Background(),
+		[]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", testAddress},
+	)
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
@@ -131,7 +140,7 @@ func TestClient_AddressHistory(t *testing.T) {
 	}
 
 	var resp *History
-	resp, err = client.AddressHistory(testAddress)
+	resp, err = client.AddressHistory(context.Background(), testAddress)
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}
@@ -166,7 +175,10 @@ func TestClient_AddressHistoryBatch(t *testing.T) {
 	}
 
 	var resp *History
-	resp, err = client.AddressHistoryBatch([]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", testAddress})
+	resp, err = client.AddressHistoryBatch(
+		context.Background(),
+		[]string{"1GJ3x5bcEnKMnzNFPPELDfXUCwKEaLHM5H", testAddress},
+	)
 	if err != nil {
 		t.Fatal("error occurred: " + err.Error())
 	}

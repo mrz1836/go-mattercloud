@@ -19,6 +19,7 @@ const (
 
 	// apiEndpoint is where we fire requests
 	apiEndpoint string = "https://api.mattercloud.net/api/" + version + "/"
+	// apiEndpoint string = "https://api.mattercloud.io/api/" + version + "/"
 )
 
 // Client is the parent struct that wraps the heimdall client

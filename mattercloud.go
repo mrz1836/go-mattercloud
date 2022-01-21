@@ -6,6 +6,7 @@ package mattercloud
 import (
 	"bytes"
 	"context"
+	"errors"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -15,13 +16,12 @@ import (
 // NewClient creates a new client to submit requests
 // Parameters values are set to the defaults defined by the API documentation.
 //
-// For more information: https://developers.mattercloud.net/#authentication
+// For more information: https://developers.mattercloud.io/
 func NewClient(apiKey string, network NetworkType, clientOptions *Options) (c *Client, err error) {
 
 	// Make sure we have an API key
 	if len(apiKey) == 0 {
-		err = fmt.Errorf("missing required api key")
-		return
+		return nil, errors.New("missing required api key")
 	}
 
 	// Create a client using the given options
@@ -35,7 +35,7 @@ func NewClient(apiKey string, network NetworkType, clientOptions *Options) (c *C
 }
 
 // Request is a generic request wrapper that can be used without constraints
-func (c *Client) Request(endpoint string, method string, payload []byte) (response string, err error) {
+func (c *Client) Request(ctx context.Context, endpoint, method string, payload []byte) (response string, err error) {
 
 	// Set reader
 	var bodyReader io.Reader
@@ -58,7 +58,7 @@ func (c *Client) Request(endpoint string, method string, payload []byte) (respon
 	// Start the request
 	var request *http.Request
 	if request, err = http.NewRequestWithContext(
-		context.Background(), method, endpoint, bodyReader,
+		ctx, method, endpoint, bodyReader,
 	); err != nil {
 		return
 	}
