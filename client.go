@@ -22,14 +22,14 @@ const (
 	// apiEndpoint string = "https://api.mattercloud.io/api/" + version + "/"
 )
 
-// httpInterface is used for the http client (mocking heimdall)
-type httpInterface interface {
+// HTTPInterface is used for the http client (mocking heimdall)
+type HTTPInterface interface {
 	Do(req *http.Request) (*http.Response, error)
 }
 
 // Client is the parent struct that wraps the heimdall client
 type Client struct {
-	httpClient  httpInterface // carries out the http operations (heimdall client)
+	httpClient  HTTPInterface // carries out the http operations (heimdall client)
 	LastRequest *LastRequest  // is the raw information from the last request
 	Parameters  *Parameters   // contains application specific values
 }
@@ -87,7 +87,7 @@ func ClientDefaultOptions() (clientOptions *Options) {
 }
 
 // createClient will make a new http client based on the options provided
-func createClient(options *Options, customHTTPClient *http.Client) (c *Client) {
+func createClient(options *Options, customHTTPClient HTTPInterface) (c *Client) {
 
 	// Create a client
 	c = new(Client)

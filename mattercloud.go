@@ -18,7 +18,7 @@ import (
 //
 // For more information: https://developers.mattercloud.io/
 func NewClient(apiKey string, network NetworkType, clientOptions *Options,
-	customHTTPClient *http.Client) (c *Client, err error) {
+	customHTTPClient HTTPInterface) (c *Client, err error) {
 
 	// Make sure we have an API key
 	if len(apiKey) == 0 {
