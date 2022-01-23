@@ -87,17 +87,13 @@ func ClientDefaultOptions() (clientOptions *Options) {
 }
 
 // createClient will make a new http client based on the options provided
-func createClient(options *Options, customHTTPClient HTTPInterface) (c *Client) {
+func createClient(apiKey string, network NetworkType, options *Options,
+	customHTTPClient HTTPInterface) (c *Client) {
 
 	// Create a client
-	c = new(Client)
-	c.LastRequest = new(LastRequest)
-	c.Parameters = new(Parameters)
-
-	// Is there a custom HTTP client to use?
-	if customHTTPClient != nil {
-		c.httpClient = customHTTPClient
-		return
+	c = &Client{
+		LastRequest: &LastRequest{},
+		Parameters:  &Parameters{apiKey: apiKey, Network: network},
 	}
 
 	// Set options (either default or user modified)
@@ -107,6 +103,12 @@ func createClient(options *Options, customHTTPClient HTTPInterface) (c *Client) 
 
 	// Create a last request and parameters struct
 	c.Parameters.UserAgent = options.UserAgent
+
+	// Is there a custom HTTP client to use?
+	if customHTTPClient != nil {
+		c.httpClient = customHTTPClient
+		return
+	}
 
 	// dial is the net dialer for clientDefaultTransport
 	dial := &net.Dialer{KeepAlive: options.DialerKeepAlive, Timeout: options.DialerTimeout}

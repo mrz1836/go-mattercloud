@@ -18,7 +18,7 @@ import (
 //
 // For more information: https://developers.mattercloud.io/
 func NewClient(apiKey string, network NetworkType, clientOptions *Options,
-	customHTTPClient HTTPInterface) (c *Client, err error) {
+	customHTTPClient HTTPInterface) (c ClientInterface, err error) {
 
 	// Make sure we have an API key
 	if len(apiKey) == 0 {
@@ -26,11 +26,7 @@ func NewClient(apiKey string, network NetworkType, clientOptions *Options,
 	}
 
 	// Create a client using the given options
-	c = createClient(clientOptions, customHTTPClient)
-
-	// Set the key and network
-	c.Parameters.apiKey = apiKey
-	c.Parameters.Network = network
+	c = createClient(apiKey, network, clientOptions, customHTTPClient)
 
 	return
 }
@@ -97,4 +93,9 @@ func (c *Client) Request(ctx context.Context, endpoint, method string,
 	// Parse the response
 	response = string(body)
 	return
+}
+
+// Network will return the current network
+func (c *Client) Network() NetworkType {
+	return c.Parameters.Network
 }

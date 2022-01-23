@@ -28,7 +28,7 @@ func TestNewClient(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if client.Parameters.Network != NetworkMain {
+	if client.Network() != NetworkMain {
 		t.Fatal("expected value to be main")
 	}
 }
@@ -36,7 +36,7 @@ func TestNewClient(t *testing.T) {
 // ExampleNewClient example using NewClient()
 func ExampleNewClient() {
 	client, _ := NewClient(testAPIKey, NetworkMain, nil, nil)
-	fmt.Println(client.Parameters.Network)
+	fmt.Println(client.Network())
 	// Output:main
 }
 
