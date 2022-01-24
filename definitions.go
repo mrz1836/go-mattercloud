@@ -20,9 +20,11 @@ const (
 
 // APIInternalError is for internal server errors (most requests)
 type APIInternalError struct {
-	Errors       []string `json:"errors,omitempty"`
+	Code         int      `json:"code,omitempty"`
 	ErrorMessage string   `json:"message,omitempty"`
-	ErrorName    string   `json:"name,omitempty"`
+	Error        string   `json:"error,omitempty"`
+	Errors       []string `json:"errors,omitempty"`
+	Success      bool     `json:"success,omitempty"`
 }
 
 // AddressList is the list of addresses for batch

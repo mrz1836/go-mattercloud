@@ -26,12 +26,7 @@ func (c *Client) AddressBalance(ctx context.Context, address string) (balance *B
 
 	// Check for error
 	if c.LastRequest.StatusCode != http.StatusOK {
-		var apiError APIInternalError
-		if err = json.Unmarshal([]byte(resp), &apiError); err != nil {
-			return
-		}
-		err = fmt.Errorf("error: %s", apiError.ErrorMessage)
-		return
+		return nil, processError(resp)
 	}
 
 	// Process the response
@@ -71,12 +66,7 @@ func (c *Client) AddressBalanceBatch(ctx context.Context, addresses []string) (b
 
 	// Check for error
 	if c.LastRequest.StatusCode != http.StatusOK {
-		var apiError APIInternalError
-		if err = json.Unmarshal([]byte(resp), &apiError); err != nil {
-			return
-		}
-		err = fmt.Errorf("error: %s", apiError.ErrorMessage)
-		return
+		return nil, processError(resp)
 	}
 
 	// Process the response
@@ -102,12 +92,7 @@ func (c *Client) AddressUtxos(ctx context.Context, address string) (utxos []*Uns
 
 	// Check for error
 	if c.LastRequest.StatusCode != http.StatusOK {
-		var apiError APIInternalError
-		if err = json.Unmarshal([]byte(resp), &apiError); err != nil {
-			return
-		}
-		err = fmt.Errorf("error: %s", apiError.ErrorMessage)
-		return
+		return nil, processError(resp)
 	}
 
 	// Process the response
@@ -147,12 +132,7 @@ func (c *Client) AddressUtxosBatch(ctx context.Context, addresses []string) (utx
 
 	// Check for error
 	if c.LastRequest.StatusCode != http.StatusOK {
-		var apiError APIInternalError
-		if err = json.Unmarshal([]byte(resp), &apiError); err != nil {
-			return
-		}
-		err = fmt.Errorf("error: %s", apiError.ErrorMessage)
-		return
+		return nil, processError(resp)
 	}
 
 	// Process the response
@@ -178,12 +158,7 @@ func (c *Client) AddressHistory(ctx context.Context, address string) (history *H
 
 	// Check for error
 	if c.LastRequest.StatusCode != http.StatusOK {
-		var apiError APIInternalError
-		if err = json.Unmarshal([]byte(resp), &apiError); err != nil {
-			return
-		}
-		err = fmt.Errorf("error: %s", apiError.ErrorMessage)
-		return
+		return nil, processError(resp)
 	}
 
 	// Process the response
@@ -223,12 +198,7 @@ func (c *Client) AddressHistoryBatch(ctx context.Context, addresses []string) (h
 
 	// Check for error
 	if c.LastRequest.StatusCode != http.StatusOK {
-		var apiError APIInternalError
-		if err = json.Unmarshal([]byte(resp), &apiError); err != nil {
-			return
-		}
-		err = fmt.Errorf("error: %s", apiError.ErrorMessage)
-		return
+		return nil, processError(resp)
 	}
 
 	// Process the response

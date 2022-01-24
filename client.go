@@ -1,8 +1,11 @@
 package mattercloud
 
 import (
+	"encoding/json"
+	"errors"
 	"net"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/gojektech/heimdall/v6"
@@ -153,4 +156,26 @@ func createClient(apiKey string, network NetworkType, options *Options,
 	}
 
 	return
+}
+
+// processError will try to attempt to parse the wonky MatterCloud errors
+func processError(response string) error {
+	if strings.Contains(response, "<!DOCTYPE html>") {
+		return errors.New("request failed, response was not expected")
+	}
+	var apiError APIInternalError
+	if err := json.Unmarshal([]byte(response), &apiError); err != nil {
+		return err
+	}
+	if len(apiError.ErrorMessage) == 0 && len(apiError.Error) > 0 {
+		apiError.ErrorMessage = apiError.Error
+	} else if len(apiError.ErrorMessage) == 0 && len(apiError.Error) == 0 {
+		for _, msg := range apiError.Errors {
+			if len(msg) > 0 {
+				return errors.New(msg)
+			}
+		}
+		apiError.ErrorMessage = "unknown error occurred"
+	}
+	return errors.New(apiError.ErrorMessage)
 }

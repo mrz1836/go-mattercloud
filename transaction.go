@@ -26,12 +26,7 @@ func (c *Client) Transaction(ctx context.Context, tx string) (transaction *Trans
 
 	// Check for error
 	if c.LastRequest.StatusCode != http.StatusOK {
-		var apiError APIInternalError
-		if err = json.Unmarshal([]byte(resp), &apiError); err != nil {
-			return
-		}
-		err = fmt.Errorf("error: %s", apiError.ErrorMessage)
-		return
+		return nil, processError(resp)
 	}
 
 	// Process the response
@@ -69,12 +64,7 @@ func (c *Client) TransactionBatch(ctx context.Context, txIDs []string) (transact
 
 	// Check for error
 	if c.LastRequest.StatusCode != http.StatusOK {
-		var apiError APIInternalError
-		if err = json.Unmarshal([]byte(resp), &apiError); err != nil {
-			return
-		}
-		err = fmt.Errorf("error: %s", apiError.ErrorMessage)
-		return
+		return nil, processError(resp)
 	}
 
 	// Process the response
@@ -101,12 +91,7 @@ func (c *Client) Broadcast(ctx context.Context, rawTx string) (response *Broadca
 
 	// Check for error
 	if c.LastRequest.StatusCode != http.StatusOK {
-		var apiError APIInternalError
-		if err = json.Unmarshal([]byte(resp), &apiError); err != nil {
-			return
-		}
-		err = fmt.Errorf("error: %s", apiError.ErrorMessage)
-		return
+		return nil, processError(resp)
 	}
 
 	// Process the response
