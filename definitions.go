@@ -117,7 +117,7 @@ type VoutType struct {
 	ValueSatoshis int64            `json:"valueSat"`
 }
 
-// ScriptPubKeyType is the script pubkey data
+// ScriptPubKeyType is the script pubKey data
 type ScriptPubKeyType struct {
 	Addresses          []string `json:"addresses"`
 	Asm                string   `json:"asm"`
@@ -134,5 +134,11 @@ type ScriptSigType struct {
 
 // BroadcastResponse is the response for the broadcast
 type BroadcastResponse struct {
+	Success bool             `json:"success"`
+	Result  *BroadcastResult `json:"result"`
+}
+
+// BroadcastResult is the internal response payload
+type BroadcastResult struct {
 	TxID string `json:"txid"`
 }

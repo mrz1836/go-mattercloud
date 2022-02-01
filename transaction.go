@@ -78,11 +78,10 @@ func (c *Client) TransactionBatch(ctx context.Context, txIDs []string) (transact
 func (c *Client) Broadcast(ctx context.Context, rawTx string) (response *BroadcastResponse, err error) {
 
 	var resp string
-	// POST https://api.mattercloud.io/api/v3/main/tx/send
-
+	// POST https://api.mattercloud.io/api/v3/main/merchants/tx/broadcast
 	resp, err = c.Request(
 		ctx,
-		"tx/send",
+		"merchants/tx/broadcast",
 		http.MethodPost, []byte(fmt.Sprintf(`{"rawtx":"%s"}`, rawTx)),
 	)
 	if err != nil {

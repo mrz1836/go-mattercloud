@@ -105,7 +105,7 @@ func TestClient_Broadcast(t *testing.T) {
 		t.Fatal("error occurred: " + err.Error())
 	}
 
-	if resp.TxID != "96b3dc5941ce97046d4af6e7a69f4b38c48f05ef071c2a33f88807b89ab51da6" {
-		t.Fatal("expected tx id", resp.TxID)
+	if resp.Result.TxID != "96b3dc5941ce97046d4af6e7a69f4b38c48f05ef071c2a33f88807b89ab51da6" {
+		t.Fatal("expected tx id", resp.Result.TxID)
 	}
 }
